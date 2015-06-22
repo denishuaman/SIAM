@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="resources/css/estilo.css" rel="stylesheet" type="text/css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div style="text-align:center;width:1000px;margin:0 auto;font-size:10px">
+            <ui:insert name="top" >
+                <h:form>
+		<p:outputPanel style="width:100%">
+			<p:graphicImage value="resources/images/logotipo.jpg" style="width:30%"/>
+			<p:graphicImage value="resources/images/ban-telefonista.png" style="width:70%"/>
+		</p:outputPanel>
+		
+		<p:menubar styleClass="txtmsg" style="width:100%;padding: 0;">
+			<p:submenu label="La Clínica" >
+				<p:menuitem value="Historia"/>
+				<p:menuitem value="Direccion"/>
+			</p:submenu>
+			<p:submenu label="Nuestro staff" >			
+			</p:submenu>		
+			<p:submenu label="Informacion para el paciente" >
+				<p:menuitem value="Programa de vacunacion"/>
+				<p:menuitem value="Convenios"/>
+			</p:submenu>
+			<p:submenu label="Servicios Médicos">
+				<p:menuitem value="Centro de maternidad"/>
+				<p:menuitem value="Centro de imagenes"/>
+			</p:submenu>
+			<p:submenu label="Medico en casa">
+			</p:submenu>		
+		</p:menubar>
+                </h:form>
+            </ui:insert>
+            <ui:insert name="content">Content</ui:insert>
+
+            <ui:insert name="bottom">Bottom</ui:insert>
+        </div>
+
+
+
+    </h:body>
+
+</html>
