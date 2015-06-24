@@ -21,13 +21,18 @@ public class Prueba {
     public static void main(String[] args) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        List<Tcitamedica> listPac = session.createQuery("select cm, p \n"
+        List<List> listPac = session.createQuery("select new list(cm, p) \n"
                 + "from Tcitamedica cm inner join cm.tdisponibilidadcitamedica dcm inner join dcm.tmedico m \n"
                 + "with m.codMedico = 1 inner join cm.tpaciente p inner join p.thistoriaclinica h \n"
                 + "with cm.fechaCitaProg='2015-06-15'").list();
         session.close();
-        System.out.println("----------------------");
-        System.out.println(listPac.get(0).getId().toString());
-        System.out.println("----------------------");
+        Tcitamedica cita;
+        Tpaciente p;
+        for (List l : listPac) {
+            cita = (Tcitamedica)l.get(0);
+            System.out.println("..."+cita.getId());
+            p = (Tpaciente)l.get(1);
+            System.out.println("..."+p.getDni()+" "+p.getNombres());
+        }
     }
 }
