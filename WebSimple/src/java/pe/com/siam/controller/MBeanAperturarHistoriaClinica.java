@@ -34,7 +34,7 @@ public class MBeanAperturarHistoriaClinica implements Serializable{
     private String ano;
     private String lugaNaci;
     private String direccion;
-    private int numHistoria;
+    private long numHistoria;
     private int celular;
     private String msgOut;
     private String estiloCSS;
@@ -45,6 +45,8 @@ public class MBeanAperturarHistoriaClinica implements Serializable{
     public MBeanAperturarHistoriaClinica() {
         admClinica = new AdminClinica();
         limpiar();
+        setNumHistoria(admClinica.nuevoNumHis());
+        System.out.println("EL nUm Historia es... "+numHistoria);
     }
 
     public void registrarPaciente(){
@@ -61,11 +63,11 @@ public class MBeanAperturarHistoriaClinica implements Serializable{
             msgOut = admClinica.insertarNuevoPaciente(nomb, apellPate, apellMate, dni, sexo,
                     estaCivil, fechNaci, lugaNaci, direccion, celular);
         } catch (ParseException ex) {
-            msgOut = "Error en registro de fecha";//msgOut = "1Error en registro de fecha";
+            msgOut = "1Error en registro de fecha";//msgOut = "1Error en registro de fecha";
             Logger.getLogger(MBeanAperturarHistoriaClinica.class.getName()).log(Level.SEVERE, null, ex);
         }
         //msgOut = msgOut.substring(1);
-        //procesarMensaje();
+        procesarMensaje();
     }
     
     public void mostrarPaciente(){
@@ -175,11 +177,11 @@ public class MBeanAperturarHistoriaClinica implements Serializable{
         this.direccion = direccion;
     }
 
-    public int getNumHistoria() {
+    public long getNumHistoria() {
         return numHistoria;
     }
 
-    public void setNumHistoria(int numHistoria) {
+    public void setNumHistoria(long numHistoria) {
         this.numHistoria = numHistoria;
     }
 
@@ -213,5 +215,21 @@ public class MBeanAperturarHistoriaClinica implements Serializable{
 
     public void setEstiloIMG(String estiloIMG) {
         this.estiloIMG = estiloIMG;
-    }    
+    }
+     
+    public void procesarMensaje(){
+        System.out.println("Con num: "+msgOut);
+        if(msgOut.charAt(0) == '1'){
+                System.out.println("Es de error :"+msgOut.charAt(0));
+                estiloCSS="error";
+                estiloIMG="/resources/images/dedoAbajo.png";
+        }
+        if(msgOut.charAt(0) == '0'){
+                System.out.println("Es de acierto :"+msgOut.charAt(0));
+                estiloCSS="noError";
+                estiloIMG="/resources/images/dedoArriba.png";
+        }
+        msgOut = msgOut.substring(1);
+        System.out.println("SIN num: "+msgOut);
+    } 
 }

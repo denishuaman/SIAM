@@ -9,15 +9,16 @@
 	
 <h:head>
 	<link href="resources/css/estilo.css" rel="stylesheet" type="text/css"/>
-  	<title>Aperurar....</title>
+  	<title>Orden de Tejedur&iacute;a</title>
 </h:head>
 <h:body>
-	<p:panel  style="text-align:center;width:1000px;margin:0 auto;font-size:12px">
-	<h:form>		
-        <p:panel  header="Aperturar Historia Clínica" style="width:700px;margin:0 auto">
+	<!-- <p:panel  style="text-align:center;width:1000px;margin:0 auto;font-size:12px">-->
+        <h:form style="width: 99%">
+           
+        <p:panel  header="Aperturar Historia Clínica" style="margin:0;font-size:12px;width:100%">
             <br/>
-            <p:fieldset id="registro" legend="Datos del paciente" style="text-align:left;width:660px;padding-right: 0">
-                <p:panelGrid columns="1" styleClass="panelClear" style="text-align:left">
+            <p:fieldset id="registro" legend="Datos del paciente" style="text-align:left;padding-right: 0;margin:0;">
+                <p:panelGrid columns="1" styleClass="panelClear" style="text-align:left;margin:0 auto;">
                 <p:panelGrid columns="16" style="text-align:right !important">
                     <p:fieldset styleClass="fieldClear"/><p:fieldset styleClass="fieldClear"/><p:fieldset styleClass="fieldClear"/>
                     <p:fieldset styleClass="fieldClear"/><p:fieldset styleClass="fieldClear"/><p:fieldset styleClass="fieldClear"/>
@@ -25,7 +26,7 @@
                     <p:fieldset styleClass="fieldClear"/><p:fieldset styleClass="fieldClear"/><p:fieldset styleClass="fieldClear"/>
                     <p:fieldset styleClass="fieldClear"/>							
                     <p:panel styleClass="espacio" style="width:40px" />											
-                    <h:outputText value="N° Historia" /><p:inputText disabled="true" size="6"/>
+                    <h:outputText value="N° Historia" /><p:inputText disabled="true" size="6" value="#{mBeanAperturarHistoriaClinica.numHistoria}"/>
                 </p:panelGrid>
                 <p:panelGrid columns="3" style="text-align:left;width:70%">
                     <h:outputText value="Nombres"/><p:panel styleClass="espacio" style="width:55px !important;"/>
@@ -91,20 +92,22 @@
                                          onclick="PF('dlg_msg').show();" update="msg_dinamic"/>
                     </p:outputPanel><p:panel styleClass="espacio"/>
                     <p:outputPanel>
-                            <p:commandButton value="Cancelar"/>
+                        <p:commandButton value="Cancelar"/>
                     </p:outputPanel>
             </p:panelGrid>			
         
-            <p:dialog id="dialog_msg" header="Mensaje" widgetVar="dlg_msg" resizable="false"
-                       modal="true" style="font-size:12px;text-align:left;">
-                <p:outputLabel id="msg_dinamic">
-                    <p:outputLabel value="#{mBeanAperturarHistoriaClinica.msgOut}"/>
-                        <p:commandButton value="Aceptar" oncomplete="PF('dlg_msg').hide();" styleClass="centrado"
-                                         actionListener="#{mBeanAperturarHistoriaClinica.limpiar()}" update="registro"/>	
-                </p:outputLabel>
-            </p:dialog>
+        <p:dialog id="dialog_msg" header="Mensaje" widgetVar="dlg_msg" resizable="false"
+                           modal="true" style="font-size:12px;text-align:left;">
+            <p:outputLabel id="msg_dinamic">
+                    <p:graphicImage id="imgdinamic" value="#{mBeanAperturarHistoriaClinica.estiloIMG}"/>
+                    <p:outputLabel value="#{mBeanAperturarHistoriaClinica.msgOut}" styleClass="#{mBeanAperturarHistoriaClinica.estiloCSS}"/>
+                            <p:panelGrid></p:panelGrid>
+                            <p:commandButton value="Aceptar" oncomplete="PF('dlg_msg').hide();" styleClass="centrado"
+                                                             actionListener="#{mBeanAperturarHistoriaClinica.limpiar()}" update="registro"/>	
+            </p:outputLabel>
+        </p:dialog>
         </p:panel>
 	</h:form>
-    </p:panel>	
+    <!--</p:panel>-->
 </h:body>
 </html>

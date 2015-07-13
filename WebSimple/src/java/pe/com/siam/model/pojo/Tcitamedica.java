@@ -21,16 +21,14 @@ public class Tcitamedica  implements java.io.Serializable {
 
     public Tcitamedica() {
     }
-
 	
-    public Tcitamedica(TcitamedicaId id, Tdisponibilidadcitamedica tdisponibilidadcitamedica, Tpaciente tpaciente, int numTurno, int estadoPago, int estadoAtencion, Date fechaCitaProg) {
+    public Tcitamedica(TcitamedicaId id, int numTurno, int estadoPago, int estadoAtencion, Date fechaCitaProg,Double costo) {
         this.id = id;
-        this.tdisponibilidadcitamedica = tdisponibilidadcitamedica;
-        this.tpaciente = tpaciente;
         this.numTurno = numTurno;
         this.estadoPago = estadoPago;
         this.estadoAtencion = estadoAtencion;
         this.fechaCitaProg = fechaCitaProg;
+        this.costo = costo;
     }
     public Tcitamedica(TcitamedicaId id, Tdisponibilidadcitamedica tdisponibilidadcitamedica, Tpaciente tpaciente, int numTurno, int estadoPago, int estadoAtencion, Date fechaCitaProg, Double costo) {
        this.id = id;

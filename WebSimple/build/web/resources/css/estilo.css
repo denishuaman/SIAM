@@ -16,8 +16,7 @@ body {
   margin: 0;
  }
 
-
- .panelCS tr, .panelCS td{
+.panelCS tr, .panelCS td{
 	font-size: 12px;
 	border-size:0px;
 	cellpadding:0px;
@@ -33,6 +32,10 @@ body {
 .fieldsetBuscarCS{
 	width:170px;
 	height:140px;
+}
+
+.contenido{
+    
 }
 
 .clCS{
@@ -106,7 +109,7 @@ A:hover {color: #F55B0E}
 	border-style:none;
 }
 
-.tablaOT table { border-collapse: collapse; text-align: left; width: 100%; }
+.tablaOT table { border-collapse: collapse; text-align: center;}
 /*.tabla {font: normal Times New Roman, Times, serif;}*/
 .tablaOT table td, .tablaOT table th { padding: 2px 8px; }
 .tablaOT table thead th {font-size: 10px;font-weight: bold; border:1px solid #DBDBDB}
@@ -217,18 +220,16 @@ A:hover {color: #F55B0E}
 .panelClear tr, .panelClear td{
 	border-size:0px !important;
 	cellpadding:0px !important;
-	border-style:none!important;
+	border-style:none !important;
 	padding: 2px !important;
 	padding-right: 6px !important;
 }
-
 .panelClearFull tr, .panelClearFull td{
 	border-size:0px !important;
 	cellpadding:0px !important;
 	border-style:none !important;
 	padding: 0px !important;
 }
-
 .fieldClearFull{
 	border-size:0px !important;
 	cellpadding:0px !important;
@@ -239,7 +240,6 @@ A:hover {color: #F55B0E}
 	width:3px !important;
 	border-style:none !important;
 }
-
 .fieldClear{
 	border-size:0px !important;
 	cellpadding:0px !important;

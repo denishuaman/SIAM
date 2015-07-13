@@ -5,8 +5,6 @@
  */
 package pe.com.siam.model.dao;
 
-import java.util.Date;
-import java.util.List;
 import pe.com.siam.model.pojo.Tcitamedica;
 
 /**
@@ -14,7 +12,5 @@ import pe.com.siam.model.pojo.Tcitamedica;
  * @author bperez
  */
 public class CitaMedicaDAO extends GenericDAO<Tcitamedica>{
-    public List<Tcitamedica> listarPacienteCitaMedico(int codMedico, Date fechaCitaProg) {
-        return null;
-    }
+    
 }

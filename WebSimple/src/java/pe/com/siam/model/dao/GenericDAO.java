@@ -10,14 +10,12 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Example;
-
 /**
  *
  * @author Jean
  * @param <T>
  */
 public abstract class GenericDAO<T> {
-
     public Class<T> domainClass = getDomainClass();
     protected Session session;
 
@@ -27,17 +25,17 @@ public abstract class GenericDAO<T> {
                     .getGenericSuperclass();
             domainClass = (Class) thisType.getActualTypeArguments()[0];
         }
-        return domainClass;
+        return domainClass; 
     }
 
     @SuppressWarnings("unchecked")
     public T obtenerObjeto(int id) {
         T returnValue = null;
         try {
-            System.out.println("DNI: " + id);
+            System.out.println("DNI: "+id);
             returnValue = (T) getHibernateTemplate().load(domainClass, id);
             session.getTransaction().commit();
-        } catch (Exception e) {
+        } catch (Exception e) { 
             e.printStackTrace();
         }
         return returnValue;
@@ -80,7 +78,7 @@ public abstract class GenericDAO<T> {
         List<T> returnList = null;
         try {
             returnList = getHibernateTemplate().createQuery(
-                    "from " + domainClass.getName() + " x").list();
+                    "from " + domainClass.getName()+ " x").list();
             //session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();

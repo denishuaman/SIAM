@@ -1,42 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <link href="resources/css/estilo.css" rel="stylesheet" type="text/css"/>
-        <title>Consultar Lista de Pacientes</title>
+        <title>Facelet Title</title>
     </h:head>
     <h:body>
-
-        <p:panel style="text-align:center;width:1000px;margin:0 auto;font-size:12px">
-            <h:form>
-                <p:panel  header="Consultar Lista de Pacientes" style="width:700px;margin:0 auto">
-                    <p:dataTable id="listaPacientesDeMedico" value="d" var="paciente" style="font-size:12px;" styleClass="tablaOT"
-                                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                 paginator="true" rows="5" rowsPerPageTemplate="5,10">
-                        <f:facet  name="header">
-                            <h:outputLabel style="font-size:12px;" value="Lista de pacientes programados"/>			
-                        </f:facet>
-
-                        <p:column headerText="Turno"></p:column>
-                        <p:column headerText="Nombres"></p:column>
-                        <p:column headerText="Apellidos"></p:column>
-                        <p:column headerText="N° de Historia"></p:column>
-                        <p:column headerText="Atendido" >
-                            <p:growl id="msg" />
-                            <p:selectBooleanCheckbox value="#{mBeanConsultarListaPacientes.value1}">
-                                <p:ajax update="msg" listener="#{mBeanConsultarListaPacientes.addMessage}"/>
-                            </p:selectBooleanCheckbox>
-                        </p:column>
-
-                    </p:dataTable>
-                </p:panel>
-            </h:form>            
-        </p:panel>
+        Hello from Facelets
     </h:body>
 </html>
 

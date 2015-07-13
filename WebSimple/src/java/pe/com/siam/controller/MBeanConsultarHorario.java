@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import pe.com.siam.model.business.AdminClinica;
@@ -18,28 +19,27 @@ import pe.com.siam.model.pojo.Tmedico;
 @ManagedBean
 @SessionScoped
 public class MBeanConsultarHorario {
-    private String espe;
+
+    private Integer espe;
     private String medi;
     private Date dia;
     private Calendar diaCal = Calendar.getInstance();
-    private Map<String,String> listEspe;
-    private Map<String,String> listMedi;
     private AdminClinica admClinica;
     private List<List> infoDisp;
+
+    private List<Tespecialidad> espeList;
+    
     public MBeanConsultarHorario() {
         admClinica = new AdminClinica();
-        cargarEspecialidades();
+        //cargarEspecialidades();
     }
-    
+    //Probando el postConstruct
+    @PostConstruct
     public void cargarEspecialidades(){
-        listEspe = new LinkedHashMap<String, String>();
-        List<Tespecialidad> espeList = admClinica.obtenerEspecialidades();
-        for(Tespecialidad e: espeList)
-            listEspe.put(e.getNombre(),""+e.getCodEspe());
+        espeList = admClinica.obtenerEspecialidades();
     }
     
     public void cargarTabla(){
-        listMedi = new LinkedHashMap<String, String>();
         System.out.println("La espe elegida: "+espe);
         //System.out.println("Dia elegido1:"+dia);
         diaCal.setTime(dia);
@@ -51,18 +51,18 @@ public class MBeanConsultarHorario {
         
 //        List<Tmedico> mediList = admClinica.obtenerMedicos(espe,diaCal.get(Calendar.DAY_OF_WEEK)-1);
 //        for(Tmedico m:mediList)
-//            listMedi.put(m.getApellidos(),""+m.getCodMedico()); 
+//            listMedi.put(m.getApellidos(),""+m.getCodMedico());
         infoDisp = admClinica.infoDisponibilidadMedico(espe,diaCal);
         for(List o:infoDisp){
             System.out.println("Nombre: "+o.get(0));
         }
     }
 
-    public String getEspe() {
+    public Integer getEspe() {
         return espe;
     }
 
-    public void setEspe(String espe) {
+    public void setEspe(Integer espe) {
         this.espe = espe;
     }
 
@@ -81,22 +81,6 @@ public class MBeanConsultarHorario {
     public void setDia(Date dia) {
         this.dia = dia;
     }
-    
-    public Map<String, String> getListEspe() {
-        return listEspe;
-    }
-
-    public void setListEspe(Map<String, String> listEspe) {
-        this.listEspe = listEspe;
-    }
-
-    public Map<String, String> getListMedi() {
-        return listMedi;
-    }
-
-    public void setListMedi(Map<String, String> listMedi) {
-        this.listMedi = listMedi;
-    }
 
     public List<List> getInfoDisp() {
         return infoDisp;
@@ -113,6 +97,14 @@ public class MBeanConsultarHorario {
     public void setDiaCal(Calendar diaCal) {
         this.diaCal = diaCal;
     }
-    
+
+    public List<Tespecialidad> getEspeList() {
+        return espeList;
+    }
+
+    public void setEspeList(List<Tespecialidad> espeList) {
+        this.espeList = espeList;
+    }
+
     
 }

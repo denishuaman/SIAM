@@ -13,10 +13,6 @@
 </head>
 
 <body>
-    <%--<jsp:forward page="aperturarHistoriaClinica.jsf"/>--%>
-    <jsp:forward page="consultarListaPacientes.jsf"/>
-    <%--<jsp:forward page="buscarPaciente.jsf"/>--%>
-    
-    
+    <jsp:forward page="menuRecepcionista.jsf"/>
 </body>
 </html>

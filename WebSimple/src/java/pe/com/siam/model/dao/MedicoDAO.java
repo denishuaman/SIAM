@@ -25,8 +25,8 @@ public class MedicoDAO extends GenericDAO<Tmedico>{
     }
     
     public List<List> infodisponibilidadMedico(int esp,String dia,String fprog){
-        String HQL = "select new list(m.nombres || ' ' || m.apellidos , d.horaIni || '-' || d.horaFin , count (cm) || '/' || "
-                + "dcm.capacidad) from Tmedico m inner join m.tdisponibilidadcitamedicas dcm inner join dcm.tdisponibilidad d with d.dia  ='"+dia+"'\n" +
+         String HQL = "select new list (m.nombres || ' ' || m.apellidos , d.horaIni || '-' || d.horaFin , count (cm) || '/' || dcm.capacidad, count(cm), m.codMedico, e.costo, d.codDispo)"
+                + "from Tmedico m inner join m.tdisponibilidadcitamedicas dcm inner join dcm.tdisponibilidad d with d.dia  ='"+dia+"'\n" +
                 "inner join dcm.tespecialidad e with e.codEspe ="+esp+" left join dcm.tcitamedicas cm with cm.fechaCitaProg = '"+fprog+"'\n" +
                 "group by m ";
         Query query = getHibernateTemplate().createQuery(HQL);

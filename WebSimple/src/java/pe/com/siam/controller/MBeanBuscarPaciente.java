@@ -18,21 +18,20 @@ import pe.com.siam.model.pojo.Tpaciente;
 @ManagedBean
 @SessionScoped
 public class MBeanBuscarPaciente {
-
     private int filtro;
     private int numHxorD;
     private List<Tpaciente> pacientes;
     private AdminClinica admClinica;
-
     public MBeanBuscarPaciente() {
-        System.out.println("Intancia: " + this.getClass().getName());
+        System.out.println("Intancia: "+this.getClass().getName());
         admClinica = new AdminClinica();
     }
-
-    public void buscarPaciente() {
-        pacientes = admClinica.cargarPacientes(filtro, numHxorD);
+    
+    public void buscarPaciente(){
+            pacientes = admClinica.cargarPacientes(filtro, numHxorD);
     }
 
+    
     public int getFiltro() {
         return filtro;
     }
@@ -56,5 +55,6 @@ public class MBeanBuscarPaciente {
     public void setPacientes(List<Tpaciente> pacientes) {
         this.pacientes = pacientes;
     }
-
+    
+    
 }

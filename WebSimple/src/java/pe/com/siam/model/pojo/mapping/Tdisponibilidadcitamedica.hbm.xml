@@ -32,4 +32,9 @@
             <one-to-many class="pe.com.siam.model.pojo.Tcitamedica" />
         </set>
     </class>
+    <query name="HQLDisponibilidadCitaMedica">
+        <![CDATA[
+	   select dcm from Tdisponibilidadcitamedica dcm inner join dcm.tmedico m  with m.codMedico = :codMedi 
+            inner join dcm.tdisponibilidad d with d.codDispo = :codDispo]]>
+    </query>    
 </hibernate-mapping>

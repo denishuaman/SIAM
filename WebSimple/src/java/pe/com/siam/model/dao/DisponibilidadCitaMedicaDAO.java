@@ -5,7 +5,9 @@
  */
 package pe.com.siam.model.dao;
 
+import org.hibernate.Query;
 import pe.com.siam.model.pojo.Tdisponibilidadcitamedica;
+import pe.com.siam.model.pojo.TdisponibilidadcitamedicaId;
 
 /**
  *
@@ -13,4 +15,11 @@ import pe.com.siam.model.pojo.Tdisponibilidadcitamedica;
  */
 public class DisponibilidadCitaMedicaDAO extends GenericDAO<Tdisponibilidadcitamedica>{
     
+    
+    public Tdisponibilidadcitamedica obtenerPorId(TdisponibilidadcitamedicaId id){
+        Query query = getHibernateTemplate().getNamedQuery("HQLDisponibilidadCitaMedica")
+                .setParameter("codMedi", id.getTmedCodMedico()).setParameter("codDispo", id.getTdisCodDispo());
+        return (Tdisponibilidadcitamedica)query.uniqueResult();
+    }
+
 }
