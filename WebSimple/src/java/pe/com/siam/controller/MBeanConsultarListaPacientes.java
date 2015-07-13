@@ -74,8 +74,4 @@ public class MBeanConsultarListaPacientes {
     public void setFechaProgramada(Date fechaProgramada) {
         this.fechaProgramada = fechaProgramada;
     }
-
-//    public void listarPacienteDeMedicoFecha() {
-//        listaPacientes = admClinica.listarPacientesCitaMedico(codMedico, fechaProgramada);
-//    }
 }
