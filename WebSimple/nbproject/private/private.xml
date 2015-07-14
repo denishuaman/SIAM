@@ -4,6 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/DENIS/Documents/GitHub/SIAM/WebSimple/src/java/pe/com/siam/controller/MBeanConsultarListaPacientes.java</file>
+            <file>file:/C:/Users/DENIS/Documents/GitHub/SIAM/WebSimple/src/java/pe/com/siam/model/business/AdminClinica.java</file>
+            <file>file:/C:/Users/DENIS/Documents/GitHub/SIAM/WebSimple/src/java/pe/com/siam/model/dao/CitaMedicaDAO.java</file>
             <file>file:/C:/Users/DENIS/Documents/GitHub/SIAM/WebSimple/src/java/hibernate.cfg.xml</file>
         </group>
     </open-files>
